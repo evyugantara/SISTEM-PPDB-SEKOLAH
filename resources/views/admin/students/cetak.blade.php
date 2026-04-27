@@ -117,13 +117,13 @@
             <img src="{{ asset('images/tut.png') }}" alt="Logo">
             <h2>PEMERINTAH KABUPATEN/KOTA</h2>
             <h3>DINAS PENDIDIKAN</h3>
-            <h2>[NAMA SEKOLAH]</h2>
-            <p>Alamat: Jalan Raya [LOKASI SEKOLAH] No. 123, Kec. Contoh, Kab. Contoh</p>
+            <h2>{{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}</h2>
+            <p>Alamat: {{ \App\Models\Setting::get('school_address', 'Jl. Alamat Sekolah No. 123') }}</p>
         </div>
 
         <div class="title">BUKTI PENDAFTARAN PESERTA DIDIK BARU (PPDB)</div>
 
-        <p>Berdasarkan data yang masuk ke dalam sistem PPDB [NAMA SEKOLAH], menyatakan bahwa:</p>
+        <p>Berdasarkan data yang masuk ke dalam sistem PPDB {{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}, menyatakan bahwa:</p>
 
         <table>
             <tr><td class="label">Nomor Pendaftaran</td><td class="colon">:</td><td class="value"><strong>PPDB-{{ date('Y') }}-{{ str_pad($student->id, 4, '0', STR_PAD_LEFT) }}</strong></td></tr>
@@ -142,7 +142,7 @@
         </table>
 
         <p style="font-size: 14px; text-align: justify; margin-top: 20px;">
-            Demikian bukti pendaftaran ini dibuat sebagai tanda bahwa calon peserta didik telah terdaftar dalam sistem PPDB [NAMA SEKOLAH]. Harap simpan bukti ini dan bawa pada saat pengumuman atau proses daftar ulang (jika dinyatakan diterima).
+            Demikian bukti pendaftaran ini dibuat sebagai tanda bahwa calon peserta didik telah terdaftar dalam sistem PPDB {{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}. Harap simpan bukti ini dan bawa pada saat pengumuman atau proses daftar ulang (jika dinyatakan diterima).
         </p>
 
         <div class="footer">
@@ -152,7 +152,7 @@
                 <p>( ........................................ )</p>
             </div>
             <div class="signature">
-                <p>[LOKASI SEKOLAH], {{ date('d F Y') }}<br>Panitia PPDB,</p>
+                <p>{{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}, {{ date('d F Y') }}<br>Panitia PPDB,</p>
                 <div class="signature-space"></div>
                 <p>( ........................................ )</p>
             </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulir Pendaftaran PPDB - SDN Mekarlaksana</title>
+    <title>Formulir Pendaftaran PPDB - {{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -150,7 +150,7 @@
     <nav class="navbar">
         <a href="/" class="navbar-brand">
             <img src="{{ asset('images/tut.png') }}" alt="Logo">
-            <span>SDN Mekarlaksana</span>
+            <span>{{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}</span>
         </a>
     </nav>
 

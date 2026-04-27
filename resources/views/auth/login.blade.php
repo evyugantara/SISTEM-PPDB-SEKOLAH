@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Admin - PPDB [NAMA SEKOLAH]</title>
+    <title>Login Admin - PPDB {{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script>
         if (localStorage.getItem('theme') === 'dark') {
@@ -158,7 +158,7 @@
             <img src="{{ asset('images/tut.png') }}" alt="Logo Tut Wuri Handayani">
         </div>
         <h4>Admin PPDB</h4>
-        <p>[NAMA SEKOLAH]</p>
+        <p>{{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}</p>
 
         @if ($errors->any())
             <div class="alert alert-danger" style="font-size: 13px; padding: 10px; border-radius: 8px; background: #fee2e2; color: #991b1b; border: 1px solid #fecaca;">

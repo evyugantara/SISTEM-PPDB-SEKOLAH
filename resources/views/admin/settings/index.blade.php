@@ -9,6 +9,30 @@
             @csrf
             
             <div class="card mb-4">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="card-title m-0"><i class="fas fa-school"></i> Identitas Sekolah (Sistem Universal)</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nama Sekolah</label>
+                                <input type="text" class="form-control" name="school_name" value="{{ $settings['school_name'] ?? 'Nama Sekolah' }}" placeholder="Contoh: SDN Mekarlaksana">
+                                <small class="text-muted">Nama ini akan muncul di seluruh header, footer, dan title website.</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Alamat Sekolah</label>
+                                <input type="text" class="form-control" name="school_address" value="{{ $settings['school_address'] ?? 'Jl. Alamat Sekolah No. 123' }}" placeholder="Alamat lengkap sekolah">
+                                <small class="text-muted">Alamat ini akan muncul di footer halaman depan dan bukti pendaftaran.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
                 <div class="card-header bg-primary text-white">
                     <h3 class="card-title m-0"><i class="fas fa-calendar-alt"></i> Pengaturan Jadwal & Status Sistem</h3>
                 </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal PPDB - [NAMA SEKOLAH]</title>
+    <title>Portal PPDB - {{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -441,7 +441,7 @@
     <nav class="navbar">
         <a href="/" class="navbar-brand">
             <img src="{{ asset('images/tut.png') }}" alt="Logo">
-            <span>[NAMA SEKOLAH]</span>
+            <span>{{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}</span>
         </a>
         <div style="display: flex; gap: 10px; align-items: center;">
             <button id="theme-toggle" class="theme-toggle" style="background-color: var(--primary-color);">
@@ -458,7 +458,7 @@
             <li></li><li></li><li></li><li></li><li></li>
         </ul>
         <h1>Penerimaan Peserta Didik Baru</h1>
-        <p>Selamat datang di Portal Resmi PPDB [NAMA SEKOLAH]. Silakan daftar secara online atau gunakan portal ini untuk mengecek status seleksi pendaftaran putra/putri Anda secara langsung.</p>
+        <p>Selamat datang di Portal Resmi PPDB {{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}. Silakan daftar secara online atau gunakan portal ini untuk mengecek status seleksi pendaftaran putra/putri Anda secara langsung.</p>
         <a href="{{ route('public.daftar') }}" style="position: relative; z-index: 10; display: inline-block; padding: 15px 30px; font-size: 18px; border-radius: 8px; text-decoration: none; margin-top: 10px; background-color: var(--accent-color); color: #1a2a4c; font-weight: bold; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s;"><i class="fas fa-edit"></i> Daftar Sekarang</a>
     </div>
 
@@ -494,7 +494,7 @@
             
                 <div style="background-color: var(--primary-color); color: white; padding: 40px; border-radius: 8px 8px 0 0; position: relative; overflow: hidden;">
                     <h2 style="font-size: 36px; font-weight: bold; margin-bottom: 10px;">Selamat !</h2>
-                    <p style="font-size: 18px; margin: 0; opacity: 0.9;">Anda dinyatakan <strong>diterima</strong> pada seleksi PPDB [NAMA SEKOLAH].</p>
+                    <p style="font-size: 18px; margin: 0; opacity: 0.9;">Anda dinyatakan <strong>diterima</strong> pada seleksi PPDB {{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}.</p>
                     <i class="fas fa-user-check" style="position: absolute; right: 50px; bottom: -30px; font-size: 180px; opacity: 0.15;"></i>
                 </div>
             @elseif($student->status == 'Ditolak')
@@ -654,7 +654,7 @@
 
     <div style="background-color: var(--primary-color); color: white; padding: 80px 0; text-align: center;">
         <div class="container">
-            <h2 style="margin-bottom: 20px; font-size: 32px;">Mengapa [NAMA SEKOLAH]?</h2>
+            <h2 style="margin-bottom: 20px; font-size: 32px;">Mengapa {{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}?</h2>
             <p style="max-width: 800px; margin: 0 auto 40px auto; opacity: 0.9;">Kami berkomitmen memberikan pendidikan dasar yang berkualitas dengan fasilitas modern dan tenaga pengajar profesional untuk mencetak generasi yang cerdas, berkarakter, dan religius.</p>
             <div class="grid">
                 <div>
@@ -676,6 +676,11 @@
     <a href="https://wa.me/085" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <footer class="footer">
+        <p>&copy; 2026 {{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}. All Rights Reserved.</p>
+        <p style="font-size: 12px; margin-top: 5px; opacity: 0.7;">{{ \App\Models\Setting::get('school_address', 'Jl. Alamat Sekolah No. 123') }}</p>
+    </footer>
 
     <script src="{{ asset('js/dark-mode.js') }}"></script>
 </body>

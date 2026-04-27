@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="alert-banner" style="background-color: #3b5998;">
-    Panel Monitoring Kepala Sekolah - PPDB SDN Mekarlaksana
+    Panel Monitoring Kepala Sekolah - PPDB {{ \App\Models\Setting::get('school_name', 'Nama Sekolah') }}
 </div>
 
 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 20px;">
