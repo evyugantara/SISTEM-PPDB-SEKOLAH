@@ -1,0 +1,25 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('username')->unique()->nullable()->after('name');
+            $table->enum('role', ['Admin', 'Panitia', 'Kepala Sekolah'])->default('Panitia')->after('username');
+            $table->boolean('is_active')->default(true)->after('role');
+            $table->json('permissions')->nullable()->after('is_active');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['username', 'role', 'is_active', 'permissions']);
+        });
+    }
+};
